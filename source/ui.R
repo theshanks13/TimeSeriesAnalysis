@@ -1,11 +1,3 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
 
 library(shiny)
 
@@ -13,29 +5,24 @@ library(shiny)
 
 
 
-
-# Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
-  # Application title
-  titlePanel("Time Series Notebook"),
+  titlePanel("Time Series Analysis"),
   
-  
-  
-  # Sidebar with a slider input for number of bins 
     mainPanel(
       tabsetPanel(type = "tabs",
                   tabPanel("Data Load",
-                           textInput("myip",label="sdf"),
-                           textInput("myip1",label="sdf"),
-                           textInput("myip2",label="sdf"),
-                           actionButton("mybutton",label = "fdvd")
+                           selectInput(inputId = "dbType",label = "Select DB Type"
+                                         ,choices = c("Mongo DB","PostgreSQL"),selected = 2),
+                           textInput("dbNameInput",label="DB Name"),
+                           textInput("hostNameInput",label="Host Name"),
+                           textInput("portNameInput",label="Port Name"),
+                           actionButton("mybutton",label = "Connect")
                   ),
-                  
-                  tabPanel("Data Clean"),
-                  tabPanel("Time Series Exploratory Data Analysis"),
-                  tabPanel("Modeling"),
-                  tabPanel("Model Scoring"))
+      tabPanel("Data Clean"),
+      tabPanel("Time Series Exploratory Data Analysis"),
+      tabPanel("Modeling"),
+      tabPanel("Model Scoring"))
     
      
       

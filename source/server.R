@@ -12,11 +12,14 @@ library(shiny)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    shiny::observeEvent(input$mybutton,{
-     
-     mg1 <- mongoDbConnect('db')
+     if (input$dbType == "Mongo DB") {
+     mg1 <- mongoDbConnect(dbName = input$dbNameInput,host = input$hostNameInput,port = input$portNameInput)
      print(dbShowCollections(mg1))
-     shiny::showNotification(ui = 'connecting')
-                               
+     showNotification(ui = 'connecting')
+     }
+     else{
+       showNotification(ui = "Haven't configured that db yet")
+     }
    })
  
     
