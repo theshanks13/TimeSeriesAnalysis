@@ -11,33 +11,35 @@ library(shiny)
 
 
 
-            
-            
-            
+
+
+
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
   # Application title
   titlePanel("Time Series Notebook"),
   
- 
+  
   
   # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    
-    ),
-    
-    # Show a plot of the generated distribution
     mainPanel(
       tabsetPanel(type = "tabs",
-                  tabPanel("Data Load"),
+                  tabPanel("Data Load",
+                           textInput("myip",label="sdf"),
+                           textInput("myip1",label="sdf"),
+                           textInput("myip2",label="sdf"),
+                           actionButton("mybutton",label = "fdvd")
+                  ),
+                  
                   tabPanel("Data Clean"),
                   tabPanel("Time Series Exploratory Data Analysis"),
                   tabPanel("Modeling"),
-                  tabPanel("Model Scoring")),
-      
-      
+                  tabPanel("Model Scoring"))
     
-    )
-  )
-))
+     
+      
+  ,width = "100%")
+  
+)
+)

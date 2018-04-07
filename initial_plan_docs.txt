@@ -1,0 +1,23 @@
+data load
+
+server
+csv
+json
+
+
+data clean
+missing value
+outlier treatment
+
+
+time series eda
+
+
+
+
+clean time series data
+3 lines of thoughts
+
+decomposition
+exponential smoothing
+arima
